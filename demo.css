@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body,.wrapper{
+    width: 100%;
+    height: 100%;
+}
+.wrapper{
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    width: 80%;
+    height: 80%;
+    /* border: 1px solid #fff; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item{
+    width: 16%;
+    height: 100%;
+    /* border: 1px solid #fff ; */
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+
+.inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform .5s linear;
+
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/1.jpg);
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center center; 
+    opacity: 0.5;
+    transition: opacity .2s linear;
+}
+.item:nth-of-type(2) .bg{
+    background-image: url(./img/2.jpg);
+}
+.item:nth-of-type(3) .bg{
+    background-image: url(./img/3.jpg);
+}
+.item:nth-of-type(4) .bg{
+    background-image: url(./img/4.jpg);
+}
+.item:nth-of-type(5) .bg{
+    background-image: url(./img/5.jpg);
+}
+.item:nth-of-type(6) .bg{
+    background-image: url(./img/6.jpg);
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0)
+}
+.item h2{
+    color: #fff;
+    font-size: 16px;
+    transition: font-size .2s linear;
+}
+.item:hover .bg{
+    opacity: 1;
+}
+.wrapper-active .bg{
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+.item:hover .title h2{
+    font-size: 24px;
+}
+.wrapper-active h2{
+    opacity: 0;
+    transition: opacity 0.5s linear;
+
+}
+.wrapper.init .item .inner{
+    transform: translateY(100%);
+}
+.item:nth-of-type(2) .inner{
+    transition-delay: 0.2s
+}
+.item:nth-of-type(3) .inner{
+    transition-delay: 0.4s
+}
+.item:nth-of-type(4) .inner{
+    transition-delay: 0.6s
+}
+.item:nth-of-type(5) .inner{
+    transition-delay: 0.8s
+}
+.item:nth-of-type(6) .inner{
+    transition-delay: 1s
+}
+.item.active{
+    width: 100%;
+}
+.wrapper-active .item:not(.active){
+    height: 0;
+    width: 0;
+}
+.wrapper-active .item{
+    transition: height 0.5s linear,width 0.5s linear 0.5s; 
+}
+.item{
+    transition: width 0.5s linear,height 0.5s linear 0.5s; 
+}
+.dir{
+    width: 100%;
+    height: 30%;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 50px;
+    opacity: 0;
+}
+.wrapper-active .dir{
+    opacity: 1;
+    transition: opacity .5s linear 1s;
+}
+.dir .header{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    color: #fff;
+    font-size: 24px;
+}
+.dir .close{
+    position: absolute;
+    right: 50px;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    top: 50px;
+}
+.wrapper-active .close{
+    transform: rotate(180deg);
+    transition: transform .5s linear 1s;
+}
+.close::after,.close::before{
+    position: absolute;
+    top: 50%;
+    content: '';
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+}
+.close::after{
+    transform: rotate(45deg);
+}
+.close::before{
+    transform: rotate(-45deg);
+}
